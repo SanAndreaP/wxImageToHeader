@@ -165,7 +165,8 @@ void wxImageToHeaderFrame::OnButton1Click(wxCommandEvent& event)
             convBytes.insert(std::pair<std::string, std::string>(elem.first, str.str()));
             str.clear();
         }
-        str << "#ifndef wxImageToHeaderMAIN_H"
-            << "#define wxImageToHeaderMAIN_H";
+        str
+        << "#ifndef wxImageToHeaderMAIN_H"
+        #define wxImageToHeaderMAIN_H"
     }
 }
