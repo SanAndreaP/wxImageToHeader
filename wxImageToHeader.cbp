@@ -34,6 +34,8 @@
 					<Add library="libwxzlib.a" />
 					<Add library="libwxregexu.a" />
 					<Add library="libwxexpat.a" />
+					<Add library="C:\boost_1_55_0\stage\lib\libboost_filesystem-mgw48-mt-1_55.a" />
+					<Add library="C:\boost_1_55_0\stage\lib\libboost_system-mgw48-mt-1_55.a" />
 					<Add directory="C:/wxWidgets-3.0.1/lib/gcc_lib" />
 				</Linker>
 			</Target>
@@ -66,13 +68,13 @@
 			<Add library="libwsock32.a" />
 			<Add library="libodbc32.a" />
 		</Linker>
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="wxImageToHeaderApp.cpp" />
 		<Unit filename="wxImageToHeaderApp.h" />
 		<Unit filename="wxImageToHeaderMain.cpp" />
 		<Unit filename="wxImageToHeaderMain.h" />
-		<Unit filename="resource.rc">
-			<Option compilerVar="WINDRES" />
-		</Unit>
 		<Unit filename="wxsmith/wxImageToHeaderframe.wxs" />
 		<Extensions>
 			<code_completion />
