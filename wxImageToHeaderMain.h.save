@@ -15,16 +15,15 @@
 #include <wx/textctrl.h>
 #include <wx/checkbox.h>
 #include <wx/listbox.h>
-#include <wx/textdlg.h>
 #include <wx/statbox.h>
 #include <wx/panel.h>
 #include <wx/filedlg.h>
-#include <wx/richtext/richtextctrl.h>
 #include <wx/button.h>
 #include <wx/frame.h>
 //*)
 
-#include <map>
+#include <vector>
+#include <sstream>
 
 class wxImageToHeaderFrame: public wxFrame
 {
@@ -37,9 +36,9 @@ class wxImageToHeaderFrame: public wxFrame
 
         //(*Handlers(wxImageToHeaderFrame)
         void OnQuit(wxCommandEvent& event);
-        void OnAbout(wxCommandEvent& event);
         void OnBtn_AddFileClick(wxCommandEvent& event);
         void OnButton1Click(wxCommandEvent& event);
+        void OnCB_FileOutClick(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(wxImageToHeaderFrame)
@@ -52,38 +51,38 @@ class wxImageToHeaderFrame: public wxFrame
         static const long ID_TEXTCTRL1;
         static const long ID_BUTTON3;
         static const long ID_STATICBOX2;
-        static const long ID_RICHTEXTCTRL1;
         static const long ID_CHECKBOX3;
         static const long ID_TEXTCTRL2;
         static const long ID_BUTTON4;
         static const long ID_STATICTEXT1;
+        static const long ID_TEXTCTRL3;
         static const long ID_PANEL1;
-        static const long ID_TEXTENTRYDIALOG1;
         //*)
 
         //(*Declarations(wxImageToHeaderFrame)
         wxFileDialog* FD_ImageFiles;
         wxButton* Btn_AddFile;
         wxButton* Btn_FileOut;
-        wxTextEntryDialog* TED_ImageVarName;
-        wxRichTextCtrl* RichTextCtrl1;
         wxButton* Button1;
-        wxTextCtrl* TC_Header;
         wxTextCtrl* TC_FileOut;
         wxPanel* Panel1;
         wxStaticText* StaticText1;
         wxStaticBox* StaticBox1;
         wxStaticBox* StaticBox2;
+        wxTextCtrl* TC_Output;
         wxCheckBox* CB_WithAlpha;
+        wxTextCtrl* TC_Namesp;
         wxButton* Btn_RemoveFile;
         wxCheckBox* CB_Compress;
         wxListBox* LB_Images;
         wxCheckBox* CB_FileOut;
         //*)
 
-        std::map<std::string, std::string> m_images;
+        std::vector<std::pair<std::string, std::string>> m_images;
 
         DECLARE_EVENT_TABLE()
+
+        bool checkValidHeaderName();
 };
 
 #endif // wxImageToHeaderMAIN_H

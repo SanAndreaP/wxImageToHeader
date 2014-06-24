@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="wxImageToHeaderFrame">
-		<size>1000,401</size>
+		<size>993,401</size>
 		<id_arg>0</id_arg>
+		<style>wxDEFAULT_DIALOG_STYLE|wxMINIMIZE_BOX</style>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>216,264</pos>
-			<size>1000,424</size>
+			<size>992,401</size>
 			<object class="wxCheckBox" name="ID_CHECKBOX1" variable="CB_WithAlpha" member="yes">
 				<label>with alpha channel</label>
 				<pos>320,72</pos>
@@ -13,6 +14,7 @@
 			<object class="wxCheckBox" name="ID_CHECKBOX2" variable="CB_FileOut" member="yes">
 				<label>output to file:</label>
 				<pos>320,96</pos>
+				<handler function="OnCB_FileOutClick" entry="EVT_CHECKBOX" />
 			</object>
 			<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBox1" member="yes">
 				<label>Selected Images</label>
@@ -51,17 +53,12 @@
 				<pos>600,16</pos>
 				<size>384,376</size>
 			</object>
-			<object class="wxRichTextCtrl" name="ID_RICHTEXTCTRL1" variable="RichTextCtrl1" member="yes">
-				<pos>608,40</pos>
-				<size>368,344</size>
-				<style>wxRE_MULTILINE|wxRE_READONLY</style>
-			</object>
 			<object class="wxCheckBox" name="ID_CHECKBOX3" variable="CB_Compress" member="yes">
 				<label>Compress Bytes with EasyComp™</label>
 				<pos>320,144</pos>
 				<enabled>0</enabled>
 			</object>
-			<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TC_Header" member="yes">
+			<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TC_Namesp" member="yes">
 				<pos>320,40</pos>
 				<size>256,21</size>
 			</object>
@@ -72,17 +69,22 @@
 				<handler function="OnButton1Click" entry="EVT_BUTTON" />
 			</object>
 			<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
-				<label>Header-Filename</label>
+				<label>Namespace name</label>
 				<pos>320,24</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TC_Output" member="yes">
+				<pos>608,40</pos>
+				<size>368,344</size>
+				<font>
+					<sysfont>wxSYS_ANSI_FIXED_FONT</sysfont>
+				</font>
+				<style>wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH|wxTE_RICH2|wxTE_DONTWRAP</style>
 			</object>
 		</object>
 		<object class="wxFileDialog" variable="FD_ImageFiles" member="yes">
 			<message>Select file</message>
 			<wildcard>Portable Network Graphics (*.png)|*.png</wildcard>
 			<style>wxFD_DEFAULT_STYLE|wxFD_OPEN|wxFD_FILE_MUST_EXIST|wxFD_MULTIPLE</style>
-		</object>
-		<object class="wxTextEntryDialog" name="ID_TEXTENTRYDIALOG1" variable="TED_ImageVarName" member="yes">
-			<caption>Please select a variable name</caption>
 		</object>
 	</object>
 </wxsmith>
