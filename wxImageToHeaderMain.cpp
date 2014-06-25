@@ -172,7 +172,8 @@ void wxImageToHeaderFrame::OnButton1Click(wxCommandEvent& event)
         int initHeight = 0;
 
         for( std::pair<std::string, std::string> elem : this->m_images ) {
-            wxImage img(elem.second);
+            wxImage img(elem.second, wxBITMAP_TYPE_PNG);
+            img.InitAlpha();
 
             hasAlpha = hasAlpha && img.HasAlpha();
 
